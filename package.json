@@ -2,6 +2,7 @@
   "name": "passenger-transport-crm",
   "homepage": "https://garryrocksman.github.io/passenger-transport-crm/",
   "version": "0.1.0",
+  "main": "src/index.ts",
   "private": true,
   "dependencies": {
     "@firebase/firestore": "^3.10.0",
