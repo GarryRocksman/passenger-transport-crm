@@ -1,0 +1,13 @@
+.admin-page {
+  display: flex;
+  flex-direction: row;
+
+  &__nav {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+  }
+  &__content {
+    align-self: start;
+  }
+}
