@@ -4,6 +4,7 @@ import { Offcanvas, Navbar, Nav, Button } from 'react-bootstrap';
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { removeUser } from 'store/slices/userSlice';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '../../hooks/redux-hooks';
 import { Roles } from '../../types/Roles';
@@ -14,6 +15,7 @@ type Props = {
 };
 export const SideNavigation: React.FC<Props> = ({ roleChange }) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [show, setShow] = useState(false);
   const [activeKey, setActiveKey] = useState<Roles>(Roles.passenger);
@@ -28,6 +30,7 @@ export const SideNavigation: React.FC<Props> = ({ roleChange }) => {
 
   const handleLogout = () => {
     dispatch(removeUser());
+    navigate('/auth');
   };
 
   return (
@@ -72,12 +75,9 @@ export const SideNavigation: React.FC<Props> = ({ roleChange }) => {
             <Nav.Item>
               <Nav.Link eventKey={Categories.trips}>Trips</Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/">Home</Nav.Link>
-            </Nav.Item>
             <Button
               variant="outline-danger"
-              className="auth__button"
+              className="auth__button auth__button--logout"
               type="button"
               onClick={handleLogout}
             >
