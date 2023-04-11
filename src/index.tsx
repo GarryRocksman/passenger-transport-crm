@@ -5,7 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { App } from './App';
-import { store } from './store/intex';
+import { store } from './store';
 import './firebase';
 
 const root = ReactDOM.createRoot(

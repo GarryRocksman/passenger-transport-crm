@@ -26,12 +26,9 @@ export const UsersTable: React.FC<Props> = ({
 
   const toggleEditMode = () => {
     setIsEditable(!isEditable);
-  };
-
-  const handUserUpdateMode = () => {
-    setIsEditable(false);
     handleUserUpdate();
   };
+
   return (
     <div className="user-table">
       <h1>{tableHeader}</h1>
@@ -71,12 +68,7 @@ export const UsersTable: React.FC<Props> = ({
               ))}
             </tbody>
           )}
-          {isEditable && (
-            <EditedUserTable
-              users={users}
-              handleUserUpdate={handUserUpdateMode}
-            />
-          )}
+          {isEditable && <EditedUserTable users={users} />}
         </Table>
       )}
 

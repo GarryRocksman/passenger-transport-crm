@@ -1,5 +1,5 @@
 import { Middleware } from '@reduxjs/toolkit';
-import { RootState } from 'store/intex';
+import { RootState } from 'store';
 
 export function saveToLocalStorage(state: RootState): void {
   try {

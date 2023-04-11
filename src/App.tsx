@@ -2,7 +2,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
 import { HomePage } from './pages/HomePage/HomePage';
-import { AuthPage } from './pages/AuthPage';
+import { AuthPage } from './pages/AuthPage/AuthPage';
 import { RegistrationPage } from './pages/RegistrationPage';
 import { AdminPage } from './pages/AdminPage/AdminPage';
 

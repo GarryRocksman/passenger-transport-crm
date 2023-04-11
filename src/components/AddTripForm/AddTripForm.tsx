@@ -1,10 +1,12 @@
 import './AddTripForm.scss';
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
 import { Trip } from '../../types/Trip';
 import { User } from '../../types/User';
+// eslint-disable-next-line max-len
+import { handlePhoneNumberChange } from '../../helpers/handlePhoneNumberValidation';
 
 type AddTripFormProps = {
   onSubmit: (trip: Omit<Trip, 'id'>) => void;
@@ -58,13 +60,12 @@ export const AddTripForm: React.FC<AddTripFormProps> = ({
     }
   }, [selectedDriverId]);
 
-  console.log(selectedDriver);
-
   return (
     <Form className="trips-from" action="/" onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="date">
         <Form.Label>Data</Form.Label>
         <Form.Control
+          required={true}
           type="date"
           name="date"
           value={date}
@@ -76,6 +77,7 @@ export const AddTripForm: React.FC<AddTripFormProps> = ({
       <Form.Group className="mb-3" controlId="from">
         <Form.Label htmlFor="from">From</Form.Label>
         <Form.Control
+          required={true}
           type="text"
           name="from"
           value={from}
@@ -87,6 +89,7 @@ export const AddTripForm: React.FC<AddTripFormProps> = ({
       <Form.Group className="mb-3" controlId="to">
         <Form.Label htmlFor="to">To</Form.Label>
         <Form.Control
+          required={true}
           type="text"
           name="to"
           value={to}
@@ -98,6 +101,7 @@ export const AddTripForm: React.FC<AddTripFormProps> = ({
       <Form.Group className="mb-3" controlId="driverName">
         <Form.Label htmlFor="driverName">Driver name</Form.Label>
         <Form.Select
+          required={true}
           name="driverName"
           value={selectedDriverId}
           defaultValue="selectDriver"
@@ -116,20 +120,21 @@ export const AddTripForm: React.FC<AddTripFormProps> = ({
       <Form.Group className="mb-3" controlId="driverPhone">
         <Form.Label htmlFor="driverPhone">Driver phone</Form.Label>
         <Form.Control
-          type="text"
-          id="driverPhone"
+          required={true}
+          placeholder="+38(0__)___-__-__"
+          type="tel"
           name="driverPhone"
           value={driverPhone}
           onChange={event => {
-            setDriverPhone(event.target.value);
+            setDriverPhone(handlePhoneNumberChange(event.target.value));
           }}
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="carNumber">
         <Form.Label htmlFor="carNumber">Car number</Form.Label>
         <Form.Control
+          required={true}
           type="text"
-          id="carNumber"
           name="carNumber"
           value={carNumber}
           onChange={event => {

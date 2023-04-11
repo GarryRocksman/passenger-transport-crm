@@ -10,14 +10,20 @@ Passenger Transport CRM is a web application for managing transportation service
 - CRUD functionality for trips
 - Mobile-friendly design with React-Bootstrap
 
+
+---------------------
 ## For testing purposes
 ### Admin account:
  - login: testuser@gmail.com
  - password: testuser
 
+
+---------------------
+
 ## Getting Started
 
 These instructions will help you set up the project on your local machine for development and testing purposes.
+
 
 ### Prerequisites
 
@@ -26,6 +32,7 @@ Before you start, make sure you have the following installed on your system:
 - [Node.js](https://nodejs.org/en/) (v14.0.0 or higher)
 - [npm](https://www.npmjs.com/) (v7.0.0 or higher)
 
+----
 ### Installation
 
 1. Clone the repository:
@@ -71,6 +78,9 @@ Copy code
 
 The app should now be running on `http://localhost:3000/`.
 
+
+
+---------------------
 ## Deployment
 
 To build the project for production, run the following command:
