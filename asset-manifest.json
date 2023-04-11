@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/passenger-transport-crm/static/css/main.a552ffbc.css",
-    "main.js": "/passenger-transport-crm/static/js/main.d7cfc31f.js",
+    "main.css": "/passenger-transport-crm/static/css/main.506fba91.css",
+    "main.js": "/passenger-transport-crm/static/js/main.fb35fb10.js",
     "static/media/facebook.png": "/passenger-transport-crm/static/media/facebook.b8d9fc6be64fd917b43e.png",
     "static/media/logo.png": "/passenger-transport-crm/static/media/logo.c6bb7f06ce7376c9166c.png",
     "static/media/journey-bakground.png": "/passenger-transport-crm/static/media/journey-bakground.3e320f5c37b86a4ac4eb.png",
     "static/media/google.png": "/passenger-transport-crm/static/media/google.9db27c1011edb821b59c.png",
     "index.html": "/passenger-transport-crm/index.html",
-    "main.a552ffbc.css.map": "/passenger-transport-crm/static/css/main.a552ffbc.css.map",
-    "main.d7cfc31f.js.map": "/passenger-transport-crm/static/js/main.d7cfc31f.js.map"
+    "main.506fba91.css.map": "/passenger-transport-crm/static/css/main.506fba91.css.map",
+    "main.fb35fb10.js.map": "/passenger-transport-crm/static/js/main.fb35fb10.js.map"
   },
   "entrypoints": [
-    "static/css/main.a552ffbc.css",
-    "static/js/main.d7cfc31f.js"
+    "static/css/main.506fba91.css",
+    "static/js/main.fb35fb10.js"
   ]
 }
