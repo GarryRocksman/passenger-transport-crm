@@ -1,0 +1,14 @@
+.home-page {
+  margin-top: 30px;
+  text-align: center;
+
+  &__container {
+    background-image: url('../../assets/images/journey-bakground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Add any other required styles */
+    width: 100%;
+    height: 100vh;
+  }
+}

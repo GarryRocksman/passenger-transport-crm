@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 70px;
+  height: 100vh;
+
+  &__toggle {
+    margin-top: 10px;
+    padding: 0;
+    width: 70%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &--sidebar-open {
+    width: 400px;
+    transition: width 0.5s ease;
+  }
+
+  &--sidebar-closed {
+    width: 70px;
+    transition: width 0.5s ease;
+  }
+}
+
+.auth__button--logout {
+  margin-top: 10px;
+}
