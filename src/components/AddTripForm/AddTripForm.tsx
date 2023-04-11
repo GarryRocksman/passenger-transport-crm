@@ -5,6 +5,8 @@ import { Button, Form } from 'react-bootstrap';
 
 import { Trip } from '../../types/Trip';
 import { User } from '../../types/User';
+// eslint-disable-next-line max-len
+import { handlePhoneNumberChange } from '../../helpers/handlePhoneNumberValidation';
 
 type AddTripFormProps = {
   onSubmit: (trip: Omit<Trip, 'id'>) => void;
@@ -57,19 +59,6 @@ export const AddTripForm: React.FC<AddTripFormProps> = ({
       setCarNumber('');
     }
   }, [selectedDriverId]);
-
-  const handlePhoneNumberChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const inputPhoneNumber = event.target.value;
-    const phoneRegex = /^[0-9\s\-\+\(\)]*$/;
-
-    if (phoneRegex.test(inputPhoneNumber)) {
-      setDriverPhone(inputPhoneNumber);
-    } else {
-      console.log('Invalid phone number');
-    }
-  };
 
   return (
     <Form className="trips-from" action="/" onSubmit={handleSubmit}>
@@ -132,10 +121,13 @@ export const AddTripForm: React.FC<AddTripFormProps> = ({
         <Form.Label htmlFor="driverPhone">Driver phone</Form.Label>
         <Form.Control
           required={true}
-          type="text"
+          placeholder="+38(0__)___-__-__"
+          type="tel"
           name="driverPhone"
           value={driverPhone}
-          onChange={handlePhoneNumberChange}
+          onChange={event => {
+            setDriverPhone(handlePhoneNumberChange(event.target.value));
+          }}
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="carNumber">

@@ -26,6 +26,7 @@ export const AuthWithEmail: React.FC<Props> = ({ handleClick }) => {
     >
       <Form.Group className="mb-3" controlId="email">
         <Form.Control
+          required={true}
           type="email"
           value={email}
           onChange={event => {
@@ -36,6 +37,7 @@ export const AuthWithEmail: React.FC<Props> = ({ handleClick }) => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="password">
         <Form.Control
+          required={true}
           type="password"
           value={password}
           onChange={event => {

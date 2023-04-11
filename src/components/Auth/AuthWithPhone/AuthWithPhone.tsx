@@ -3,6 +3,9 @@ import './AuthWithPhone.scss';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
+// eslint-disable-next-line max-len
+import { handlePhoneNumberChange } from '../../../helpers/handlePhoneNumberValidation';
+
 type Props = {
   handleClick: (phoneNumber: string) => void;
   verifyPhoneNumber: (verificationCode: string) => void;
@@ -35,11 +38,13 @@ export const AuthWithPhone: React.FC<Props> = ({
           >
             <Form.Group className="mb-3" controlId="phone-number">
               <Form.Control
-                type="tel"
-                placeholder="Phone number"
+                required={true}
+                placeholder="+38(0__)___-__-__"
                 name="phone"
                 value={phoneNumber}
-                onChange={event => setPhoneNumber(event.target.value)}
+                onChange={event =>
+                  setPhoneNumber(handlePhoneNumberChange(event.target.value))
+                }
               />
             </Form.Group>
             <Button className="auth__button" type="submit">
@@ -56,6 +61,7 @@ export const AuthWithPhone: React.FC<Props> = ({
             >
               <Form.Group className="mb-3" controlId="verification-code">
                 <Form.Control
+                  required={true}
                   type="text"
                   placeholder="Verification code"
                   value={verificationCode}

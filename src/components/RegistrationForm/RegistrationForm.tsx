@@ -8,6 +8,8 @@ import { Roles } from '../../types/Roles';
 import { createUser } from '../../api/userFirestore';
 import { User } from '../../types/User';
 import { loadFromLocalStorage } from '../../helpers/localStorageHelper';
+// eslint-disable-next-line max-len
+import { handlePhoneNumberChange } from '../../helpers/handlePhoneNumberValidation';
 
 export const RegistrationForm = () => {
   const authUserFromLocalStorage = loadFromLocalStorage().user;
@@ -49,19 +51,6 @@ export const RegistrationForm = () => {
     }
   };
 
-  const handlePhoneNumberChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const inputPhoneNumber = event.target.value;
-    const phoneRegex = /^[0-9\s\-\+\(\)]*$/;
-
-    if (phoneRegex.test(inputPhoneNumber)) {
-      setPhone(inputPhoneNumber);
-    } else {
-      console.log('Invalid phone number');
-    }
-  };
-
   return (
     <Form className="registration-form" action="/" onSubmit={handleCreateUser}>
       <h1 className="registration-form__title">Registration Form</h1>
@@ -100,9 +89,11 @@ export const RegistrationForm = () => {
         <Form.Control
           required={true}
           type="tel"
-          placeholder="Phone"
+          placeholder="+38(0__)___-__-__"
           value={phone}
-          onChange={handlePhoneNumberChange}
+          onChange={event =>
+            setPhone(handlePhoneNumberChange(event.target.value))
+          }
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="location">

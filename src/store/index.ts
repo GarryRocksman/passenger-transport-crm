@@ -1,9 +1,4 @@
-import {
-  AnyAction,
-  configureStore,
-  EnhancedStore,
-  Middleware,
-} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
 import {
   loadFromLocalStorage,
