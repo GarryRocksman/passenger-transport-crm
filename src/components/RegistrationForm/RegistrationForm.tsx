@@ -49,12 +49,26 @@ export const RegistrationForm = () => {
     }
   };
 
+  const handlePhoneNumberChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const inputPhoneNumber = event.target.value;
+    const phoneRegex = /^[0-9\s\-\+\(\)]*$/;
+
+    if (phoneRegex.test(inputPhoneNumber)) {
+      setPhone(inputPhoneNumber);
+    } else {
+      console.log('Invalid phone number');
+    }
+  };
+
   return (
     <Form className="registration-form" action="/" onSubmit={handleCreateUser}>
       <h1 className="registration-form__title">Registration Form</h1>
       <Form.Group className="mb-3" controlId="name">
         <Form.Label htmlFor="name">First name</Form.Label>
         <Form.Control
+          required={true}
           type="text"
           placeholder="First name"
           value={name}
@@ -64,6 +78,7 @@ export const RegistrationForm = () => {
       <Form.Group className="mb-3" controlId="lastName">
         <Form.Label htmlFor="lastName">Last name</Form.Label>
         <Form.Control
+          required={true}
           type="text"
           placeholder="Last name"
           value={lastName}
@@ -73,6 +88,7 @@ export const RegistrationForm = () => {
       <Form.Group className="mb-3" controlId="email">
         <Form.Label htmlFor="email">Email</Form.Label>
         <Form.Control
+          required={true}
           type="email"
           placeholder="Email"
           value={email}
@@ -82,15 +98,17 @@ export const RegistrationForm = () => {
       <Form.Group className="mb-3" controlId="phone">
         <Form.Label htmlFor="phone">Phone</Form.Label>
         <Form.Control
+          required={true}
           type="tel"
           placeholder="Phone"
           value={phone}
-          onChange={event => setPhone(event.target.value)}
+          onChange={handlePhoneNumberChange}
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="location">
         <Form.Label htmlFor="location">Current Location</Form.Label>
         <Form.Control
+          required={true}
           type="text"
           placeholder="Current Location"
           value={location}
@@ -100,6 +118,7 @@ export const RegistrationForm = () => {
       <Form.Group className="mb-3" controlId="destination">
         <Form.Label htmlFor="destination">Destination</Form.Label>
         <Form.Control
+          required={true}
           type="text"
           placeholder="Destonation"
           value={destination}
@@ -109,6 +128,7 @@ export const RegistrationForm = () => {
       <Form.Group className="mb-3" controlId="passenger">
         <Form.Label htmlFor="passenger" className="registration-form__label">
           <Form.Check
+            required={true}
             type="radio"
             name="role"
             value="passenger"
@@ -131,6 +151,7 @@ export const RegistrationForm = () => {
           <Form.Group className="mb-3" controlId="carNumber">
             <Form.Label htmlFor="carNumber">Car number</Form.Label>
             <Form.Control
+              required={true}
               type="text"
               placeholder="Car number"
               value={carNumber}

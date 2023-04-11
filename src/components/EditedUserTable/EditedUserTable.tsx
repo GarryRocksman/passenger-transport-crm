@@ -28,6 +28,16 @@ export const EditedUserTable: React.FC<Props> = ({
       handleUserUpdate();
     }
   };
+
+  const handlePhoneNumberChange = (inputPhoneNumber: string) => {
+    const phoneRegex = /^[0-9\s\-\+\(\)]*$/;
+
+    if (phoneRegex.test(inputPhoneNumber)) {
+      return inputPhoneNumber;
+    } else {
+      return '';
+    }
+  };
   return (
     <tbody>
       {editedUsers.map((user: User, index) => (
@@ -36,6 +46,7 @@ export const EditedUserTable: React.FC<Props> = ({
           <td>
             <Form.Group className="mb-3" controlId="firstName">
               <Form.Control
+                required={true}
                 type="text"
                 value={user.firstName}
                 onChange={e =>
@@ -51,6 +62,7 @@ export const EditedUserTable: React.FC<Props> = ({
           <td>
             <Form.Group className="mb-3" controlId="lastName">
               <Form.Control
+                required={true}
                 type="text"
                 value={user.lastName}
                 onChange={e =>
@@ -66,12 +78,18 @@ export const EditedUserTable: React.FC<Props> = ({
           <td>
             <Form.Group className="mb-3" controlId="phone">
               <Form.Control
+                required={true}
                 type="text"
                 value={user.phone}
                 onChange={e =>
                   setEditedUsers(
                     editedUsers.map(u =>
-                      u.id === user.id ? { ...u, phone: e.target.value } : u
+                      u.id === user.id
+                        ? {
+                            ...u,
+                            phone: handlePhoneNumberChange(e.target.value),
+                          }
+                        : u
                     )
                   )
                 }
@@ -81,6 +99,7 @@ export const EditedUserTable: React.FC<Props> = ({
           <td>
             <Form.Group className="mb-3" controlId="email">
               <Form.Control
+                required={true}
                 type="email"
                 value={user.email}
                 onChange={e =>
@@ -96,6 +115,7 @@ export const EditedUserTable: React.FC<Props> = ({
           <td>
             <Form.Group className="mb-3" controlId="currentLocation">
               <Form.Control
+                required={true}
                 type="text"
                 value={user.currentLocation}
                 onChange={e =>
@@ -113,6 +133,7 @@ export const EditedUserTable: React.FC<Props> = ({
           <td>
             <Form.Group className="mb-3" controlId="destination">
               <Form.Control
+                required={true}
                 type="text"
                 value={user.destination}
                 onChange={e =>
@@ -130,6 +151,7 @@ export const EditedUserTable: React.FC<Props> = ({
           <td>
             <Form.Group className="mb-3" controlId="role">
               <Form.Select
+                required={true}
                 value={user.role}
                 defaultValue={user.role}
                 onChange={e =>
@@ -151,6 +173,7 @@ export const EditedUserTable: React.FC<Props> = ({
           <td>
             <Form.Group className="mb-3" controlId="carNumber">
               <Form.Control
+                required={true}
                 type="text"
                 value={user.carNumber || ''}
                 onChange={e =>
