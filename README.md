@@ -37,24 +37,17 @@ Before you start, make sure you have the following installed on your system:
 
 1. Clone the repository:
 
-git clone https://github.com/GarryRocksman/passenger-transport-crm.git
+- git clone https://github.com/GarryRocksman/passenger-transport-crm.git
 
-markdown
-Copy code
 
 2. Change the current directory:
 
-cd passenger-transport-crm
-
-markdown
-Copy code
+ - cd passenger-transport-crm
 
 3. Install the dependencies:
 
-npm install
+ - npm install
 
-markdown
-Copy code
 
 4. Create a `.env` file in the root folder of the project and add your Firebase configuration:
 
@@ -66,29 +59,22 @@ REACT_APP_MESSAGING_SENDER_ID=your_messaging_sender_id
 REACT_APP_APP_ID=your_app_id
 REACT_APP_MEASUREMENT_ID=your_measurement_id
 
-markdown
-Copy code
 
 5. Start the development server:
 
-npm start
+ - npm start
 
-arduino
-Copy code
-
-The app should now be running on `http://localhost:3000/`.
+#### The app should now be running on `http://localhost:3000/`.
 
 
 
 ---------------------
 ## Deployment
 
-To build the project for production, run the following command:
+#### To build the project for production, run the following command:
 
-npm run build
+ - npm run build
 
-markdown
-Copy code
 
 This will create a `build` directory with the optimized production build. You can then deploy the contents of this directory to your preferred hosting provider.
 

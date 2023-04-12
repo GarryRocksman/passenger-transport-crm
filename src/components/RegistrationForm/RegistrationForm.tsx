@@ -8,8 +8,7 @@ import { Roles } from '../../types/Roles';
 import { createUser } from '../../api/userFirestore';
 import { User } from '../../types/User';
 import { loadFromLocalStorage } from '../../helpers/localStorageHelper';
-// eslint-disable-next-line max-len
-import { handlePhoneNumberChange } from '../../helpers/handlePhoneNumberValidation';
+import { handlePhoneNumberChange } from '../../helpers/phoneValidation';
 
 export const RegistrationForm = () => {
   const authUserFromLocalStorage = loadFromLocalStorage().user;

@@ -5,8 +5,7 @@ import { Button, Form } from 'react-bootstrap';
 
 import { Trip } from '../../types/Trip';
 import { User } from '../../types/User';
-// eslint-disable-next-line max-len
-import { handlePhoneNumberChange } from '../../helpers/handlePhoneNumberValidation';
+import { handlePhoneNumberChange } from '../../helpers/phoneValidation';
 
 type AddTripFormProps = {
   onSubmit: (trip: Omit<Trip, 'id'>) => void;
@@ -25,17 +24,15 @@ export const AddTripForm: React.FC<AddTripFormProps> = ({
 
   const [driverPhone, setDriverPhone] = useState('');
   const [carNumber, setCarNumber] = useState('');
+  const [isDriverSelected, setIsDriverSelected] = useState(true);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (
-      !selectedDriver ||
-      !date ||
-      !from ||
-      !to ||
-      !driverPhone ||
-      !carNumber
-    ) {
+    if (!selectedDriver) {
+      setIsDriverSelected(false);
+      return;
+    }
+    if (!date || !from || !to || !driverPhone || !carNumber) {
       return;
     }
     const trip: Omit<Trip, 'id'> = {
@@ -106,7 +103,11 @@ export const AddTripForm: React.FC<AddTripFormProps> = ({
           value={selectedDriverId}
           defaultValue="selectDriver"
           onChange={event => {
+            setIsDriverSelected(true);
             setSelectedDriverId(event.target.value);
+          }}
+          style={{
+            border: isDriverSelected ? '1px solid #ced4da' : '1px solid red',
           }}
         >
           <option value="selectDriver">Select driver</option>
