@@ -3,8 +3,7 @@ import './AuthWithPhone.scss';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-// eslint-disable-next-line max-len
-import { handlePhoneNumberChange } from '../../../helpers/handlePhoneNumberValidation';
+import { handlePhoneNumberChange } from '../../../helpers/phoneValidation';
 
 type Props = {
   handleClick: (phoneNumber: string) => void;

@@ -7,8 +7,7 @@ import cn from 'classnames';
 import { User } from '../../types/User';
 import { updateUser } from '../../api/userFirestore';
 import { Roles } from '../../types/Roles';
-// eslint-disable-next-line max-len
-import { handlePhoneNumberChange } from '../../helpers/handlePhoneNumberValidation';
+import { handlePhoneNumberChange } from '../../helpers/phoneValidation';
 
 type Props = {
   users: User[];
